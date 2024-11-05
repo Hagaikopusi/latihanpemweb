@@ -1,0 +1,367 @@
+<html>
+ <head>
+  <title>
+   Hagai Shop
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
+   <script src="https://cdn.tailwindcss.com">
+   </script>
+   <style>
+    body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('loginnbg.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .header {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+        .header .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .header .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        .header .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+        }
+        .header .icons {
+            display: flex;
+            align-items: center;
+        }
+        .header .icons i {
+            font-size: 20px;
+            margin: 0 10px;
+            color: #333;
+        }
+        .navbar {
+            background-color: #007bff;
+            padding: 10px 0;
+            position: relative;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .navbar .menu-icon {
+            font-size: 24px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        .navbar .menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #007bff;
+            z-index: 1;
+        }
+        .navbar .menu a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-bottom: 1px solid #0056b3;
+        }
+        .navbar .menu a:hover {
+            background-color: #0056b3;
+        }
+        .products {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px 0;
+        }
+        .products .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .products h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .products .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .products .product {
+            background-color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .products .product img {
+            max-width: 100%;
+            height: auto;
+        }
+        .products .product h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .products .product .sale {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #ff0000;
+            color: #ffffff;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 4px;
+        }
+        footer {
+            background-color: #007bff;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .form-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .form-container .form-group {
+            margin-bottom: 15px;
+        }
+        .form-container .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        .form-container .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+        }
+        .form-container .form-group button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-container .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .form-container .total-display {
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .products .product {
+                width: calc(50% - 20px);
+            }
+        }
+        @media (max-width: 480px) {
+            .products .product {
+                width: 100%;
+            }
+        }
+   </style>
+  </link>
+ </head>
+ <body>
+  <div class="header">
+   <div class="container">
+    <div class="logo">
+     <img alt="Logo Hagai Shop" height="40" src="logohagai.png" width="40"/>
+     <span>
+      Hagai Store
+     </span>
+    </div>
+    <div class="search-bar">
+     <input placeholder="Cari Produk" type="text"/>
+    </div>
+    <div class="icons">
+     <i class="fas fa-search">
+     </i>
+    </div>
+   </div>
+  </div>
+  <div class="navbar">
+   <div class="container">
+    <i class="fas fa-bars menu-icon" onclick="toggleMenu()">
+    </i>
+    <div class="menu" id="menu">
+     <a href="homepage.html">
+      Home Page
+     </a>
+     <a href="#">
+      Buat Produk
+     </a>
+     <a href="index.html">
+      Logout
+     </a>
+    </div>
+   </div>
+  </div>
+  <div class="products">
+   <div class="container">
+    <h2>
+     Daftar Produk
+    </h2>
+    <div class="product-list" id="product-list">
+     <!-- Produk akan ditambahkan secara dinamis di sini -->
+    </div>
+   </div>
+  </div>
+  <div class="form-container">
+   <h2>
+    Tambah Produk Baru
+   </h2>
+   <form id="product-form">
+    <div class="form-group">
+     <label for="product-name">
+      Nama Produk
+     </label>
+     <input id="product-name" required="" type="text"/>
+    </div>
+    <div class="form-group">
+     <label for="product-price">
+      Harga Produk
+     </label>
+     <input id="product-price" min="0" required="" type="number"/>
+    </div>
+    <div class="form-group">
+     <button type="submit">
+      Tambah Produk
+     </button>
+    </div>
+   </form>
+   <button class="mt-4 px-4 py-2 bg-green-500 text-white rounded" onclick="calculateTotal()">
+    Hitung Total
+   </button>
+   <div class="total-display" id="total-display">
+   </div>
+  </div>
+  <footer>
+   <p>
+    © 2024 Hagai Shop. Semua hak dilindungi. |
+    <a href="#">
+     Kebijakan Privasi
+    </a>
+    |
+    <a href="#">
+     Syarat dan Ketentuan
+    </a>
+   </p>
+  </footer>
+  <script>
+   let products = [];
+
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            if (menu.style.display === 'flex') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'flex';
+            }
+        }
+
+        function renderProducts() {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = '';
+            products.forEach((product, index) => {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product';
+                productDiv.innerHTML = `
+                    <div class="sale">Sale</div>
+                    <img src="logohagai.png" alt="Gambar produk ${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>Harga: Rp${product.price}</p>
+                    <button onclick="deleteProduct(${index})" class="px-4 py-2 bg-red-500 text-white rounded">Hapus</button>
+                `;
+                productList.appendChild(productDiv);
+            });
+        }
+
+        function deleteProduct(index) {
+            products.splice(index, 1);
+            renderProducts();
+        }
+
+        document.getElementById('product-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('product-name').value;
+            const price = document.getElementById('product-price').value;
+            if (price < 0) {
+                alert('Harga tidak boleh negatif');
+                return;
+            }
+            products.push({ name, price });
+            renderProducts();
+            document.getElementById('product-form').reset();
+        });
+
+        function calculateTotal() {
+            let subtotal = products.reduce((acc, product) => acc + parseFloat(product.price), 0);
+            let discount = 0;
+
+            if (subtotal > 2000000) {
+                discount = 0.15;
+            } else if (subtotal > 1000000) {
+                discount = 0.10;
+            }
+
+            if (products.length > 5) {
+                discount += 0.05;
+            }
+
+            const total = subtotal - (subtotal * discount);
+            document.getElementById('total-display').innerHTML = `
+                <p>Subtotal: Rp${subtotal.toFixed(2)}</p>
+                <p>Diskon: ${(discount * 100).toFixed(2)}%</p>
+                <p>Total: Rp${total.toFixed(2)}</p>
+            `;
+        }
+
+        renderProducts();
+  </script>
+ </body>
+</html>
